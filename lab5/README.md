@@ -161,7 +161,7 @@ Launch [riscv_test.ipynb](riscv_test.ipynb) within the designated Jupyter notebo
 
 ### Step-3: Deploy on the Pynq Board (Workaround)
 
-#### [13] SSH test and upload the file
+#### [13] SSH test and upload the file (This is just for uploading the files)
 
 Under GT VPN, `ssh [username]@pynq-z2-[1-50].cc.gatech.edu`
 - E.g. `ssh user@pynq-z2-23.cc.gatech.edu`, check whether you are able to access
@@ -171,7 +171,11 @@ Under GT VPN, `ssh [username]@pynq-z2-[1-50].cc.gatech.edu`
 
 #### [14] Running on the Pynq Board
 
-Execute the code `python riscv_test.py`. The address 0x20 corresponds to `out1` and 0x30 to `out2`. The value at `out1` will continuously change, reflecting the cycle count, whereas the value at `out2` will display the static value from the 10th register.
+**Needs to obtain Pynq board through slurm commands to have root access**
+- `ssh [username]@fry.cc.gatech.edu` under GT VPN
+- `srun -p techfee -C pynq -N 1 --mem=200M --pty /bin/bash -l` to get a pynq fpga
+- After getting the fpga, `sudo -s` switch to root, and `source /usr/local/share/pynq-venv/bin/activate` to get the python enviroment
+- Execute the code `python riscv_test.py`. The address 0x20 corresponds to `out1` and 0x30 to `out2`. The value at `out1` will continuously change, reflecting the cycle count, whereas the value at `out2` will display the static value from the 10th register.
 
 *Please include a screenshot of the terminal output displaying the output in your report.*
 

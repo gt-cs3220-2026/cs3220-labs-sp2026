@@ -6,5 +6,5 @@ help(overlay)
 overlay.ip_dict
 comm_ip = overlay.comm_0
 help(comm_ip)
-comm_ip.read(0x30)
-comm_ip.read(0x20)
+print(comm_ip.read(0x30))
+print(comm_ip.read(0x20))
